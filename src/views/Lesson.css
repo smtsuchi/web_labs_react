@@ -1,0 +1,33 @@
+.hints {
+    text-align: left;
+}
+.hints .line::before {
+    margin-bottom: -.1rem;
+    align-self: center;
+    content: '';
+    display: inline-block;
+    height: 1.4rem;
+    width: 1.4rem;
+    background-position: center;
+    background-size: 1.5rem;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url("https://cdn-icons-png.flaticon.com/512/71/71768.png");
+}
+.hints .line.failed::before {
+    background-image: url("https://www.kindpng.com/picc/m/80-805814_x-button-svg-png-red-x-circle-icon.png");
+}
+.hints .line.passed::before {
+    background-image: url("https://toppng.com/uploads/preview/12-months-blue-check-mark-icon-11563057671d6e51m4dr7.png");
+}
+.hints .line {
+    margin-bottom: 10px;
+    padding: 15px;
+    background-color: #dfdfe2;
+}
+.hints .line.failed {
+    background-color: #B8405E;
+}
+.hints .line.passed {
+    background-color: #C1F4C5;
+}
