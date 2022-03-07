@@ -1,0 +1,23 @@
+#backdrop {
+    width: 160%;
+    height: 550px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    transform: rotate(60deg);
+    top: -350px;
+    left: -90px;
+    background: rgb(158,214,255);
+    background: radial-gradient(circle, rgba(158,214,255,1) 0%, rgba(141,216,255,1) 7%, rgba(246,252,255,1) 70%, rgba(255,255,255,1) 88%);
+    z-index: 4;
+}
+#page-switch {
+    cursor: pointer;
+}
+#page-switch:hover {
+    filter: brightness(1.15);
+}
+#page-switch span {
+    color: #4eb8dd;
+}

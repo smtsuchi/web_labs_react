@@ -180,19 +180,24 @@ export default function Lesson(props) {
         evaluate()
     },[code, lesson.assertions]);
     const executePython = useCallback(async () => {
-        let res = await fetch("https://codingsummit.herokuapp.com/prework/ide/compile/", {
+        let res = await fetch("https://codingsummit-web-labs.herokuapp.com/prework/ide/compile/", {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify({
                 "language": "python",
-                "code": code
+                "code": code,
+                assertions: lesson.assertions.split('###')
             })
         })
         let data = await res.json()
+        console.log(data)
+        if (Object.keys(data.assertions).length === Object.keys(assertions).length) {setAssertions(data.assertions)}else {setAssertions(prevObj => {for (let i=0; i<Object.keys(prevObj).length; i++){prevObj[i]=false}; return prevObj})}
+        setResponse(data.result)
+        setCount(prevCount => prevCount + 1)
         $(".output").empty()
-        setResponse(data);
-        let eachLine = data.split('\n')
-        displayOutput(eachLine)
+        if (data.logs) {
+            displayOutput(data.result !== '>> '?data.logs.concat([data.result]):data.logs)
+        }
     }, [code, displayOutput])
     const executeCode = useCallback(() =>{
         if (mode==="javascript"){executeJavaScript()}
@@ -281,7 +286,7 @@ export default function Lesson(props) {
                 }
             }
         }
-        
+
             if (regexTests.allPassed && returnTest && assertionTest){
                 if (count === 0){return}
                 if (user.token){markComplete()}                
@@ -289,7 +294,7 @@ export default function Lesson(props) {
                 modal.classList.add('show')
             }
     },[lesson, assertions, count, user.token, checkReturn, checkRegEx, checkAssertions, markComplete]);
-
+    
     const runIt=useCallback(()=>{testCode2(response)},[testCode2, response])
     useEffect(()=>{runIt()},[count])
     const parseCode = (str, type) => {

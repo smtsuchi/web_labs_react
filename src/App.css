@@ -1,35 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 *{margin: 0;}
-body{font-family: 'Montserrat', sans-serif;font-weight: 600;min-height: 100vh;}
-#root{height: 100vh;}
-nav {
-  display: flex;
-  flex-grow: 1;
-  z-index: 9998;
-  font-size: 18px;
-  height: 28.5px;
-  width: calc(100vw - (100vw - 100%));
-  justify-content: space-between;
-  text-align: center;
-  position: fixed;
-  top: 0;
-  background-color: #2a5a81;
-  color: #fff;
-  vertical-align: middle;
-  padding-top: 5px;
+
+body{font-family: 'Open Sans', sans-serif;font-weight: 550;min-height: 100vh;
+  /* background: rgb(158,214,255); */
+  /* background: radial-gradient(circle, rgba(158,214,255,1) 0%, rgba(141,216,255,1) 7%, rgba(246,252,255,1) 70%, rgba(255,255,255,1) 88%); */
 }
-nav #nav-center {
-  display: flex;
-}
-nav #nav-right {
+#root{min-height: 100vh; height: auto;}
+.fullscreen-map {
   position: absolute;
-  right: 0;
-  margin-right: 10px;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
-nav #nav-right a {margin-left: 10px;}
-nav a{text-decoration: none;color: #fff;}
+
 .main {
-  padding-top: 33.5px;
-  min-height: calc(100vh - 33.5px);
+  padding-top: 69px;
+  min-height: calc(100vh - 69px);
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -51,7 +39,7 @@ ul{list-style: none; padding: 0;}
   align-items: center;
   width: 100%;
   border: 2.25px solid #2a5a81;
-  background-color: #d0d0d5;
+  background-color: #f3f3f3;
   color: #2a5a81;
   padding: 7.5px 12px;
   text-decoration: none;
@@ -203,6 +191,7 @@ pre > code {
   position: relative;
   top: 0;
   left: 0%;
+  background-color: white;
 }
 #ace-editor{
   position: fixed;
