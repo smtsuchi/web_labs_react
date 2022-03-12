@@ -31,7 +31,7 @@ export default function CourseInfo(props) {
         })
     }
     return (
-        <div>
+        <div className='no-select'>
             <h1>{course.title}</h1>
             <i className={`fab ${course.icon}`}></i>
             {parseDescription()}

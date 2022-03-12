@@ -15,6 +15,8 @@ import { ReactComponent as JSIcon } from './icons/js.svg';
 import { ReactComponent as PythonIcon } from './icons/python.svg';
 import { ReactComponent as CSSIcon } from './icons/css3.svg';
 import { ReactComponent as HTMLIcon } from './icons/html5.svg';
+import { ReactComponent as UserIcon } from './icons/user-solid.svg';
+import { ReactComponent as CourseIcon } from './icons/graduation-cap-solid.svg';
 import { useSetCurrentUser } from '../CurrentUserContext';
 import { Link } from 'react-router-dom';
 
@@ -59,7 +61,7 @@ export default function DropdownMenu() {
         unmountOnExit
         onEnter={calcHeight}>
         <div className="menu">
-          <Link to='/profile'><DropdownItem>Profile</DropdownItem></Link>
+          <Link to='/profile'><DropdownItem leftIcon={<UserIcon />}>Profile</DropdownItem></Link>
           <DropdownItem
             leftIcon={<CogIcon />}
             rightIcon={<ChevronIcon />}
@@ -67,7 +69,7 @@ export default function DropdownMenu() {
             Settings
           </DropdownItem>
           <DropdownItem
-            leftIcon="🦧"
+            leftIcon={<CourseIcon />}
             rightIcon={<ChevronIcon />}
             goToMenu="courses">
             Courses

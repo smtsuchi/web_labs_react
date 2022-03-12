@@ -59,9 +59,8 @@ export default function Courses(props) {
     }
 
     return (
-        <div>
+        <div className='no-select'>
             <h1 >Welcome to Coding Summit's Web Lab!</h1>
-            <Link className="course-btn curr-challenge" to='/'><p>Go to current challenge</p></Link>
             <blockquote>
                 <q>{quote.text}</q>
 

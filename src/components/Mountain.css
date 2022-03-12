@@ -1,0 +1,5 @@
+.mountain-canvas {
+    height: 100vh !important;
+    position: fixed !important;
+    z-index: 0;
+}

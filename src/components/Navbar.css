@@ -188,3 +188,6 @@
     transform: translateX(110%);
     transition: all var(--speed) ease;
   }
+  .login {
+    margin-right: 5px;
+  }

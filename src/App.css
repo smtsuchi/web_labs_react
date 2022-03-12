@@ -17,7 +17,8 @@ body{font-family: 'Open Sans', sans-serif;font-weight: 550;min-height: 100vh;
 
 .main {
   padding-top: 69px;
-  min-height: calc(100vh - 69px);
+  /* min-height: calc(100vh - 69px); */
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   margin-left: auto;
@@ -65,6 +66,7 @@ blockquote {
   max-width: 750px;
   justify-content: center;
   padding: 20px;
+  margin: auto;
 }
 .course-btn i{
   font-size: 48px;
@@ -76,12 +78,13 @@ blockquote {
 }
 /* Section */
 .section {
-  border: 1px solid black;
+  border: 1px solid #212121;
   background-color: #eee;
   margin-bottom: 15px;
 }
 .section__container {
   max-width: 750px;
+  position: relative;
 }
 /* ACCORDION */
 .accordion__input{display: none;}
@@ -90,7 +93,7 @@ blockquote {
   position: relative;
   transition: background .1s;
   cursor: pointer;
-  border-top: 1px solid black;
+  border-top: 1px solid #212121;
   -webkit-user-select: none; /* Safari */        
   -moz-user-select: none; /* Firefox */
   -ms-user-select: none; /* IE10+/Edge */
@@ -129,9 +132,11 @@ blockquote {
 .accordion__list-item a {
   text-decoration: none;
   display: block;
+  z-index: 10;
+  color: #212121;
 }
 .accordion__list-item a:visited {
-  color: black;
+  color: #212121;
 }
 /* LESSON */
 .lesson__main{
@@ -140,6 +145,8 @@ blockquote {
 }
 .left{
   width: 50vw;
+  position: relative;
+  background-color: rgba(255,255,255,.9);
 }
 .right{
   width: 50vw;
@@ -196,7 +203,7 @@ pre > code {
 #ace-editor{
   position: fixed;
 }
-.output{position: fixed;top: calc(70% + 33.5px);overflow: auto;max-height: calc(30% - 33.5px);width: 50%;}
+.output{position: fixed;top: calc(70% + 68px);overflow: auto;max-height: calc(30% - 68px);width: 50%;}
 
 /* Modal */
 .modal__container {

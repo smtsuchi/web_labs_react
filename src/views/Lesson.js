@@ -255,7 +255,7 @@ export default function Lesson(props) {
         });
         const data = await res.json()
         console.log('response', data)
-        setCurrentUser(prevUser => {prevUser.lessons.push(data.lesson); return prevUser})
+        setCurrentUser(prevUser => {prevUser.lessons.push(data.lesson); localStorage.setItem('codingsummit_user', JSON.stringify(prevUser)); return prevUser})
         return data
     },[lesson, user.token, setCurrentUser]);
     const testCode2 = useCallback((data) => {

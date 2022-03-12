@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar';
@@ -11,18 +11,29 @@ import CourseInfo from './views/CourseInfo';
 import Courses from './views/Courses';
 import Lesson from './views/Lesson';
 import './components/Skies.css';
+import Mountain from './components/Mountain';
 
 
 export default function App() {
   const user = localStorage.getItem('codingsummit_user');
   const setCurrentUser = useSetCurrentUser()
-  useEffect(()=>{if (user){setCurrentUser(JSON.parse(user))}},[user, setCurrentUser]);
+  useEffect(()=>{
+    if (user){setCurrentUser(JSON.parse(user))}
+    return () => {
+      if (user){
+        localStorage.setItem('codingsummit_user', JSON.stringify(user));
+      }
+    }
+  },[user, setCurrentUser]);
 
   return (
     <>
       <Navbar/>
       {/* <PolyBackground /> */}
       {/* <div class="sky-gradient sky-gradient-12"></div> */}
+      <Suspense fallback={null}>
+        < Mountain />
+      </Suspense>
       <div className="main">
         <Routes>
           <Route exact path='/' element={<Courses />}/>
@@ -35,6 +46,7 @@ export default function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
+      
     </>
   )
 }

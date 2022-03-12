@@ -159,11 +159,11 @@ $col-ground: #f6f9fa;
 	}
 }
 
-.mound_text {
-	transform: rotate(6deg);
+.mound-text {
+	transform: translateY(-35px) rotate(6deg);
 }
 
-.mound_spade {
+.mound-spade {
 	$handle-height: 30px;
 	
 	display: block;

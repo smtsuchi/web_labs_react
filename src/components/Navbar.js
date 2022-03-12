@@ -1,21 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useCurrentUser, useSetCurrentUser } from '../CurrentUserContext';
+import { useCurrentUser } from '../CurrentUserContext';
 import DropdownMenu from './DropdownMenu';
 import './Navbar.css';
 import NavItem from './NavItem';
+import { ReactComponent as UserIcon } from './icons/user-solid.svg'
 
 export default function Navbar() {
     const currentUser = useCurrentUser();
-    const [showDropdown, setShowDropdown] = useState('');
-    const toggleDropdown = () => {
-        setShowDropdown(showDropdown? '' : 'nav__show-dropdown')
-    };
-    
-      useEffect(()=>{
-            window.addEventListener('click', toggleDropdown)
-            return () => {window.removeEventListener('click', toggleDropdown)}
-      })
+
 
     return (
         <nav>
@@ -34,15 +27,15 @@ export default function Navbar() {
                         <li><Link class="dropdown-item" to="/profile">Profile</Link></li>
                         <li onClick={()=>{logMeOut()}}><Link class="dropdown-item" to="/auth">Logout</Link></li>
                     </ul> */}
-                    <NavItem icon={"🏂🏿"}>
-                        
-                        <DropdownMenu></DropdownMenu>
+                    <NavItem icon={<UserIcon />}>
+                        <DropdownMenu  ></DropdownMenu>
                     </NavItem>
                     
                     </>:
-                        <Link to='/auth'>
-                            Sign In
-                            <i className="fas fa-user-circle"/>
+                        <Link  to='/auth'>
+                            
+                            <h4 className='login'>Log In</h4>
+                            
                         </Link>
                         }
                 </div>
